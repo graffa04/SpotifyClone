@@ -10,24 +10,9 @@ import SwiftUI
 struct buttonSingers: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 126, height: 126)
+        
             .clipShape(Circle())
-            .background(
-                Image("profile")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 126, height: 126)
-                    .clipped()
-                    .clipShape(Circle())
-            )
-        Text("Singer")
-        .font(
-        Font.custom("Inter", size: 12)
-        .weight(.medium)
-        )
-        .foregroundColor(.gray)
-        .multilineTextAlignment(.center)
-        .frame(width: 37, height: 29,alignment: .leading)
+        
     }
 }
 
@@ -37,24 +22,116 @@ struct Singers: View {
             HStack {
                 Spacer()
                 Spacer()
-                Group {
-                    Button("") {
+                Button {
+                    
+                } label: {
+                    VStack {
                         
-                    }
-                    Button("") {
+                        Image("tyler")
+                            .resizable()
+                            .frame(width: 126, height: 126)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 126, height: 126)
+                            .clipShape(Circle())
                         
-                    }
-                    Button("") {
-                        
-                    }
-                    Button("") {
-                        
-                    }
-                    Button("") {
-                        
+                        Text("Tyler The Creator")
+                            .font(
+                                Font.custom("Inter", size: 12)
+                                    .weight(.medium)
+                            )
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 100, height: 29,alignment: .leading)
                     }
                 }
-                .buttonStyle(buttonSingers())
+                Button {
+                    
+                } label: {
+                    VStack {
+                        
+                        Image("eminem")
+                            .resizable()
+                            .frame(width: 126, height: 126)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 126, height: 126)
+                            .clipShape(Circle())
+                        
+                        Text("Eminem")
+                            .font(
+                                Font.custom("Inter", size: 12)
+                                    .weight(.medium)
+                            )
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 50, height: 29,alignment: .leading)
+                    }
+                }
+                Button {
+                    
+                } label: {
+                    VStack {
+                        
+                        Image("drake")
+                            .resizable()
+                            .frame(width: 126, height: 126)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 126, height: 126)
+                            .clipShape(Circle())
+                        
+                        Text("drake")
+                            .font(
+                                Font.custom("Inter", size: 12)
+                                    .weight(.medium)
+                            )
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 37, height: 29,alignment: .leading)
+                    }
+                }
+                Button {
+                    
+                } label: {
+                    VStack {
+                        
+                        Image("luche")
+                            .resizable()
+                            .frame(width: 126, height: 126)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 126, height: 126)
+                            .clipShape(Circle())
+                        
+                        Text("Luchè")
+                            .font(
+                                Font.custom("Inter", size: 12)
+                                    .weight(.medium)
+                            )
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 37, height: 29,alignment: .leading)
+                    }
+                }
+                Button {
+                    
+                } label: {
+                    VStack {
+                        
+                        Image("theWeeknd")
+                            .resizable()
+                            .frame(width: 126, height: 126)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 126, height: 126)
+                            .clipShape(Circle())
+                        
+                        Text("The Weeknd")
+                            .font(
+                                Font.custom("Inter", size: 12)
+                                    .weight(.medium)
+                            )
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 37, height: 29,alignment: .leading)
+                    }
+                }
             }
         } .scrollIndicators(.hidden)
     }

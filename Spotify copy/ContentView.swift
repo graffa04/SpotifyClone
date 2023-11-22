@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //    @EnvironmentObject var currentSong: songsList
+
     
     var body: some View {
         NavigationStack {
@@ -36,9 +37,9 @@ struct ContentView: View {
                         Spacer()
                         Spacer()
                         HStack {
-                            Image("profile")
+                            Circle()
                                 .frame(width: 45, height: 45)
-                                .clipShape(Circle())
+                                .foregroundColor(.white)
                             VStack(alignment: .leading) {
                                 Text("More like")
                                     .foregroundColor(Color.gray)
@@ -51,9 +52,10 @@ struct ContentView: View {
                             
                         } .position(x: 115, y: 25)
                         
-                        slidingCategories()
+                        slidingCategories(/*categories: imageNames*/)
                         
                         Text("Your Favorite artists")
+                            .bold()
                             .padding()
                             .font(.title)
                             .foregroundColor(Color.white)
@@ -69,7 +71,7 @@ struct ContentView: View {
             
             
         }
-        tabSong(/*currentSong: currentSong*/)
+        tabSong(count: .constant(1))
         barMenu()
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct playlistModel: Identifiable {
     var id: UUID = UUID()
-    var Image: String = "profile"
+    var Image: String = "playlist1"
     var nameProfile: String = "Name playlist"
     var imageProfile: String = "profile"
     var details: String = "Album · 4h 23m"

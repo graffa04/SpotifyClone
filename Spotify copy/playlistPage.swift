@@ -31,6 +31,8 @@ struct Cover: View {
                 Image(model.Image)
                     .resizable()
                     .frame(width: 250, height: 250)
+                    .rotationEffect(.degrees(270))
+                    .accessibilityLabel("Playlist")
                 
                 //                Button(action: {
                 //                    dismiss.callAsFunction()
@@ -97,6 +99,7 @@ struct Control: View {
             VStack(alignment: .leading, spacing: 10){
                 HStack {
                     Text(model.details)
+                        .accessibilityLabel("Duration 4 hours and 23 minutes")
                 }
                 
                 HStack(alignment: .center, spacing: 25) {
@@ -123,6 +126,7 @@ struct Control: View {
                     Image(systemName: "shuffle")
                         .font(.system(size: 30))
                         .foregroundColor(.gray)
+                        .accessibilityLabel("shuffle song")
                     ZStack {
                         Circle()
                             .frame(width: 60, height: 60)
@@ -131,6 +135,7 @@ struct Control: View {
                         Image(systemName: "play.fill")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
+                            .accessibilityLabel("play button")
                         
                     }
                 }

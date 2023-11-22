@@ -9,9 +9,43 @@ import SwiftUI
 import AVFoundation
 import AVKit
 
+struct BackgroundT1: View {
+    
+    let colors: [Color] = [Color(#colorLiteral(red: 0.1079011187, green: 0.3485074937, blue: 0.4073579013, alpha: 1))]
+    
+    var body: some View {
+        
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct BackgroundT2: View {
+    
+    let colors: [Color] = [Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]
+    
+    var body: some View {
+        
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct BackgroundT3: View {
+    
+    let colors: [Color] = [Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))]
+    
+    var body: some View {
+        
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
 struct tabSong: View {
     
     //    var currentSong: songsList
+    
     
     @State private var showSong = false
     
@@ -25,6 +59,8 @@ struct tabSong: View {
     @State var showNewScreen = false
     @State private var verticalPosition = 0.0
     
+    @Binding var count: Int
+    
     @Environment(\.dismiss) var dismiss
     
     let song1 = "song1"
@@ -32,7 +68,13 @@ struct tabSong: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                if self.count == 1 {
+                    BackgroundT1()
+                } else if self.count == 2 {
+                    BackgroundT2()
+                } else if self.count == 3 {
+                    BackgroundT3()
+                }
                 VStack {
                     HStack {
                         HStack{
@@ -40,11 +82,11 @@ struct tabSong: View {
                             Button {
                                 showSong = true
                             } label: {
-                                Image("profile")
+                                Image("songModal1")
                                     .resizable()
                                     .frame(width: 40, height: 40)
                                     .cornerRadius(5)
-                            }
+                            }.accessibilityHidden(true)
                             
                             
                             VStack(alignment: .leading) {
@@ -58,8 +100,10 @@ struct tabSong: View {
                                 //Text("Name song")
                                 Text("Singers name")
                                     .foregroundColor(Color(.gray))
+                                    .accessibilityHidden(true)
                             }
                             .font(.system(size: 10))
+                            .accessibilityLabel("Name Song, Singer Name, double tap for the song view")
                             
                             Spacer(minLength: 160)
                             Spacer()
@@ -100,17 +144,18 @@ struct tabSong: View {
                     .padding(.top, 15.0)
                     .progressViewStyle(LinearProgressViewStyle(tint: .white))
                     .frame(width: 370, height: 0.5)
+                    .accessibilityHidden(true)
                     
                 }
-                .frame(height: 65)
-                .background(Color(red: 0.2, green: 0.2, blue: 0.2))
-                .cornerRadius(8)
-                .foregroundColor(.white)
-                .onAppear(perform: setupAudio)
-                .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
-                    updateProgress()
-                }
             }
+            .frame(height: 65)
+            .cornerRadius(8)
+            .foregroundColor(.white)
+            .onAppear(perform: setupAudio)
+            .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+                updateProgress()
+            }
+            
             
             
         }
@@ -181,5 +226,5 @@ struct tabSong: View {
 }
 
 #Preview {
-    tabSong()
+    tabSong(count: .constant(1))
 }

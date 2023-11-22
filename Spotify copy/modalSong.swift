@@ -9,9 +9,31 @@ import SwiftUI
 import AVKit
 import AVFoundation
 
-struct BackgroundSong: View {
+struct BackgroundSong1: View {
     
     let colors: [Color] = [Color(#colorLiteral(red: 0.1079011187, green: 0.3485074937, blue: 0.4073579013, alpha: 1)), Color(#colorLiteral(red: 0.09506385773, green: 0.2428356409, blue: 0.2807130218, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1))]
+    
+    var body: some View {
+        
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct BackgroundSong2: View {
+    
+    let colors: [Color] = [Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)), Color(#colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1))]
+    
+    var body: some View {
+        
+        LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct BackgroundSong3: View {
+    
+    let colors: [Color] = [Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.6861548013)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1))]
     
     var body: some View {
         
@@ -37,7 +59,13 @@ struct modalSong: View {
     var body: some View {
         
         ZStack {
-            BackgroundSong()
+            if self.count == 1 {
+                BackgroundSong1()
+            } else if self.count == 2 {
+                BackgroundSong2()
+            } else if self.count == 3 {
+                BackgroundSong3()
+            }
             VStack(spacing: 30) {
                 HStack{
                     Button(action: {
@@ -53,13 +81,29 @@ struct modalSong: View {
                         .bold()
                     Spacer()
                     Image(systemName: "ellipsis")
+                        .accessibilityLabel("More Option")
                 } .frame(width: 360)
                 
+                if self.count == 1 {
+                    Image("songModal1")
+                        .resizable()
+                        .frame(width: 330, height: 330)
+                        .cornerRadius(5)
+                        .accessibilityLabel("Song Image")
+                } else if self.count == 2 {
+                    Image("songModal2")
+                        .resizable()
+                        .frame(width: 330, height: 330)
+                        .cornerRadius(5)
+                        .accessibilityLabel("Song Image")
+                } else if self.count == 3 {
+                    Image("songModal3")
+                        .resizable()
+                        .frame(width: 330, height: 330)
+                        .cornerRadius(5)
+                        .accessibilityLabel("Song Image")
+                }
                 
-                Image("profile")
-                    .resizable()
-                    .frame(width: 330, height: 330)
-                    .cornerRadius(5)
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -75,6 +119,7 @@ struct modalSong: View {
                     
                     Image(systemName: "plus.circle")
                         .font(.system(size: 35))
+                        .accessibilityLabel("add it to a playlist")
                     
                     
                     
@@ -98,21 +143,22 @@ struct modalSong: View {
                 HStack {
                     Image(systemName: "shuffle")
                         .font(.system(size: 30))
+                        .accessibilityLabel("produce song randomly ")
                     Spacer()
                     Button(action: {
                         StopAudio()
-                        if self.count < 3 {
+                        if self.count == 3 || self.count == 2 {
                             count -= 1
                         } else {
-                            count = 1
+                            count = 3
                         }
                         let url = Bundle.main.path(forResource: "song\(self.count)", ofType: "mp3")
                         self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-                        playAudio()
                     }, label: {
                         Image(systemName: "backward.end.fill")
                             .font(.system(size: 40))
                             .foregroundColor(.white)
+                            .accessibilityLabel("go to the previous song")
                     })
                     Spacer()
                     ZStack {
@@ -142,11 +188,11 @@ struct modalSong: View {
                         }
                         let url = Bundle.main.path(forResource: "song\(self.count)", ofType: "mp3")
                         self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-                        playAudio()
                     }, label: {
                         Image(systemName: "forward.end.fill")
                             .font(.system(size: 40))
                             .foregroundColor(.white)
+                            .accessibilityLabel("go to the next song")
                     })
                     Spacer()
                     Image(systemName: "arrow.rectanglepath")
@@ -167,7 +213,7 @@ struct modalSong: View {
     }
     
     private func setupAudio() {
-        guard let url = Bundle.main.url(forResource: "song\(self.count)", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "song1", withExtension: "mp3") else {
             return
         }
         

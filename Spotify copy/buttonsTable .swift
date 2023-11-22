@@ -24,7 +24,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist1")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
@@ -51,7 +51,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist2")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
@@ -75,7 +75,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist3")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
@@ -97,7 +97,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist4")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
@@ -120,7 +120,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist5")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
@@ -141,7 +141,7 @@ struct buttonsTable_: View {
                             .font(.footnote)
                             .frame(width: 180, height: 60)
                             .background(
-                                Image("profile")
+                                Image("playlist6")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 60, height: 60)
