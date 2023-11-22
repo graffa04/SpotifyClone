@@ -17,6 +17,7 @@ struct GrayButton: ButtonStyle {
             .clipShape(Rectangle())
             .cornerRadius(30)
             .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xSmall/*@END_MENU_TOKEN@*/)
+            
     }
 }
 

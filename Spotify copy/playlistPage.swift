@@ -153,7 +153,10 @@ struct Songs: View {
     
     var songList = songsListModel()
     
+    //    @EnvironmentObject var currentSong: songsList
+    
     @State private var buttonTapped = false
+    @State private var isSelected: Bool = false
     
 //    @Binding var player: AVAudioPlayer?
 //    @Binding var isPlaying : Bool
@@ -167,7 +170,7 @@ struct Songs: View {
     var body: some View {
         ForEach(songList.songs) { songList in
             Button {
-                self.buttonTapped.toggle()
+                songList.isSelected.toggle()
             } label: {
                 HStack {
                     Image(songList.imageSong)
@@ -176,7 +179,7 @@ struct Songs: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(songList.nameSong)
                             .font(.system(size: 14))
-                            .foregroundColor(buttonTapped ? .green : .white)
+                            .foregroundColor(songList.isSelected ? .green : .white)
                         
                         HStack {
                             

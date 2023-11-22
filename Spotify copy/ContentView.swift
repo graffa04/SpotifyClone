@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    //    @EnvironmentObject var currentSong: songsList
     
     var body: some View {
         NavigationStack {
@@ -69,7 +69,7 @@ struct ContentView: View {
             
             
         }
-        tabSong()
+        tabSong(/*currentSong: currentSong*/)
         barMenu()
     }
 }

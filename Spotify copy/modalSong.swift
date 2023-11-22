@@ -22,12 +22,14 @@ struct BackgroundSong: View {
 
 struct modalSong: View {
     
-    @Binding var player: AVAudioPlayer?
+    @Binding var player: AVAudioPlayer!
     
     @Binding var isPlaying : Bool
     @Binding var totalTime : TimeInterval
     @Binding var currentTime: TimeInterval 
+
     
+    @State var count = 1
     @Environment(\.dismiss) var dismiss
     
     let song1 = "song1"
@@ -97,8 +99,21 @@ struct modalSong: View {
                     Image(systemName: "shuffle")
                         .font(.system(size: 30))
                     Spacer()
-                    Image(systemName: "backward.end.fill")
-                        .font(.system(size: 40))
+                    Button(action: {
+                        StopAudio()
+                        if self.count < 3 {
+                            count -= 1
+                        } else {
+                            count = 1
+                        }
+                        let url = Bundle.main.path(forResource: "song\(self.count)", ofType: "mp3")
+                        self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+                        playAudio()
+                    }, label: {
+                        Image(systemName: "backward.end.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                    })
                     Spacer()
                     ZStack {
                         Circle()
@@ -118,8 +133,21 @@ struct modalSong: View {
                         })
                     }
                     Spacer()
-                    Image(systemName: "forward.end.fill")
-                        .font(.system(size: 40))
+                    Button(action: {
+                        StopAudio()
+                        if self.count < 3 {
+                            count += 1
+                        } else {
+                            count = 1
+                        }
+                        let url = Bundle.main.path(forResource: "song\(self.count)", ofType: "mp3")
+                        self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+                        playAudio()
+                    }, label: {
+                        Image(systemName: "forward.end.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                    })
                     Spacer()
                     Image(systemName: "arrow.rectanglepath")
                         .font(.system(size: 20))
@@ -132,10 +160,14 @@ struct modalSong: View {
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
                     updateProgress()
                 }
+        .onAppear {
+            let url = Bundle.main.path(forResource: "song\(self.count)", ofType: "mp3")
+            self.player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+        }
     }
     
     private func setupAudio() {
-        guard let url = Bundle.main.url(forResource: song1, withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "song\(self.count)", withExtension: "mp3") else {
             return
         }
         

@@ -11,6 +11,8 @@ import AVKit
 
 struct tabSong: View {
     
+    //    var currentSong: songsList
+    
     @State private var showSong = false
     
     @State public var player: AVAudioPlayer?

@@ -10,10 +10,12 @@ import SwiftUI
 
 @main
 struct Spotify_copyApp: App {
-    
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    //    @StateObject var currentSong: songsList = songsList(nameSong: "John", nameArtist: "Cena", imageSong: "profile", explicit: true)
+        
+        var body: some Scene {
+            WindowGroup {
+                ContentView()
+    //                .environmentObject(currentSong)
         }
     }
 }
