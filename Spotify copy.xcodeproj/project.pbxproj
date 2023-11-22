@@ -16,6 +16,7 @@
 		ED682E362B0E491C00444EE3 /* singerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED682E352B0E491C00444EE3 /* singerList.swift */; };
 		ED682E382B0E4A4900444EE3 /* categoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED682E372B0E4A4900444EE3 /* categoriesModel.swift */; };
 		ED682E3A2B0E4A6800444EE3 /* categoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED682E392B0E4A6800444EE3 /* categoriesList.swift */; };
+		ED682E3C2B0EB74200444EE3 /* SlidingCategories2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED682E3B2B0EB74200444EE3 /* SlidingCategories2.swift */; };
 		ED80079D2B03825000E98579 /* Spotify_copyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80079C2B03825000E98579 /* Spotify_copyApp.swift */; };
 		ED80079F2B03825000E98579 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80079E2B03825000E98579 /* ContentView.swift */; };
 		ED8007A12B03825100E98579 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8007A02B03825100E98579 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		ED682E352B0E491C00444EE3 /* singerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singerList.swift; sourceTree = "<group>"; };
 		ED682E372B0E4A4900444EE3 /* categoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesModel.swift; sourceTree = "<group>"; };
 		ED682E392B0E4A6800444EE3 /* categoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesList.swift; sourceTree = "<group>"; };
+		ED682E3B2B0EB74200444EE3 /* SlidingCategories2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingCategories2.swift; sourceTree = "<group>"; };
 		ED8007992B03825000E98579 /* Spotify copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80079C2B03825000E98579 /* Spotify_copyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify_copyApp.swift; sourceTree = "<group>"; };
 		ED80079E2B03825000E98579 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				ED682E352B0E491C00444EE3 /* singerList.swift */,
 				ED682E372B0E4A4900444EE3 /* categoriesModel.swift */,
 				ED682E392B0E4A6800444EE3 /* categoriesList.swift */,
+				ED682E3B2B0EB74200444EE3 /* SlidingCategories2.swift */,
 			);
 			path = "Spotify copy";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				EDA057DB2B05427200081133 /* playlistPage.swift in Sources */,
 				EDE369EE2B0BA5B400432BB7 /* songsListModel.swift in Sources */,
 				ED80079F2B03825000E98579 /* ContentView.swift in Sources */,
+				ED682E3C2B0EB74200444EE3 /* SlidingCategories2.swift in Sources */,
 				ED682E382B0E4A4900444EE3 /* categoriesModel.swift in Sources */,
 				EDA057D92B05348F00081133 /* barMenu.swift in Sources */,
 				ED682E342B0E485500444EE3 /* singerModel.swift in Sources */,

@@ -9,14 +9,14 @@ import Foundation
 
 class songsListModel {
     var songs: [songsList] = [
-        songsList(nameSong: "Mima", nameArtist: "Johns", imageSong: "profile", explicit: false, isSelected: false),
-        songsList(nameSong: "John", nameArtist: "Cena", imageSong: "profile", explicit: true, isSelected: false),
-        songsList(nameSong: "Francesco", nameArtist: "Dell'Aglio", imageSong: "profile", explicit: true, isSelected: false),
-        songsList(nameSong: "Eleonora", nameArtist: "Elefante", imageSong: "profile", explicit: false, isSelected: false),
-        songsList(nameSong: "Vasily", nameArtist: "Martin", imageSong: "profile", explicit: true, isSelected: false),
-        songsList(nameSong: "Pasquale", nameArtist: "Esposito", imageSong: "profile", explicit: true, isSelected: false),
-        songsList(nameSong: "Ciro", nameArtist: "Moccia", imageSong: "profile", explicit: false, isSelected: false),
-        songsList(nameSong: "Luca", nameArtist: "Balestrino", imageSong: "profile", explicit: false, isSelected: false),
-        songsList(nameSong: "Eleonora", nameArtist: "Elefante", imageSong: "profile", explicit: true, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist1", explicit: false, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist2", explicit: true, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist3", explicit: true, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist4", explicit: false, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist5", explicit: true, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist6", explicit: true, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist7", explicit: false, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist8", explicit: false, isSelected: false),
+        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist9", explicit: true, isSelected: false),
     ]
 }

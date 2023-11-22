@@ -52,7 +52,7 @@ struct ContentView: View {
                             
                         } .position(x: 115, y: 25)
                         
-                        slidingCategories(/*categories: imageNames*/)
+                        slidingCategories2(/*categories: imageNames*/)
                         
                         Text("Your Favorite artists")
                             .bold()
