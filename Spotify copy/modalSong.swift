@@ -51,8 +51,9 @@ struct modalSong: View {
     @Binding var currentTime: TimeInterval 
 
     
-    @State var count = 1
+    @Binding var count: Int
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     
     let song1 = "song1"
     
@@ -72,16 +73,18 @@ struct modalSong: View {
                         dismiss()
                     }, label: {
                         Image(systemName: "chevron.down")
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .dark ? .white : .white)
                             .font(.system(size: 20))
                     })
                     Spacer()
                     Text("Name playlist")
                         .font(.system(size: 15))
                         .bold()
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                     Spacer()
                     Image(systemName: "ellipsis")
                         .accessibilityLabel("More Option")
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                 } .frame(width: 360)
                 
                 if self.count == 1 {
@@ -110,6 +113,7 @@ struct modalSong: View {
                         Text("Name Song")
                             .bold()
                             .font(.system(size: 25))
+                            .foregroundColor(colorScheme == .dark ? .white : .white)
                         Text("Artist name")
                             .font(.system(size: 13))
                             .foregroundColor(.gray)
@@ -120,6 +124,7 @@ struct modalSong: View {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 35))
                         .accessibilityLabel("add it to a playlist")
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                     
                     
                     
@@ -144,6 +149,7 @@ struct modalSong: View {
                     Image(systemName: "shuffle")
                         .font(.system(size: 30))
                         .accessibilityLabel("produce song randomly ")
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                     Spacer()
                     Button(action: {
                         StopAudio()
@@ -197,6 +203,7 @@ struct modalSong: View {
                     Spacer()
                     Image(systemName: "arrow.rectanglepath")
                         .font(.system(size: 20))
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                     
                 }.padding(.horizontal)
                 

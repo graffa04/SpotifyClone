@@ -28,6 +28,7 @@ struct BackgroundT2: View {
         
         LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
             .edgesIgnoringSafeArea(.all)
+            .opacity(0.5)
     }
 }
 
@@ -39,6 +40,7 @@ struct BackgroundT3: View {
         
         LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
             .edgesIgnoringSafeArea(.all)
+            .opacity(0.5)
     }
 }
 
@@ -59,13 +61,14 @@ struct tabSong: View {
     @State var showNewScreen = false
     @State private var verticalPosition = 0.0
     
-    @Binding var count: Int
+    @State var count = 1
     
     @Environment(\.dismiss) var dismiss
     
     let song1 = "song1"
     
     var body: some View {
+        
         NavigationStack {
             ZStack {
                 if self.count == 1 {
@@ -82,10 +85,23 @@ struct tabSong: View {
                             Button {
                                 showSong = true
                             } label: {
-                                Image("songModal1")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .cornerRadius(5)
+                                if self.count == 1 {
+                                    Image("songModal1")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .cornerRadius(5)
+                                } else if self.count == 2 {
+                                    Image("songModal2")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .cornerRadius(5)
+                                } else if self.count == 3 {
+                                    Image("songModal3")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .cornerRadius(5)
+                                }
+                                
                             }.accessibilityHidden(true)
                             
                             
@@ -161,7 +177,7 @@ struct tabSong: View {
         }
         .frame(height: 65)
         .fullScreenCover(isPresented: $showSong, content: {
-            modalSong(player: $player ,isPlaying: $isPlaying, totalTime: $totalTime, currentTime: $currentTime)
+            modalSong(player: $player ,isPlaying: $isPlaying, totalTime: $totalTime, currentTime: $currentTime, count: $count)
         })
         
     }
@@ -226,5 +242,5 @@ struct tabSong: View {
 }
 
 #Preview {
-    tabSong(count: .constant(1))
+    tabSong()
 }

@@ -96,6 +96,7 @@
 				ED8007AA2B0384C900E98579 /* topButtons.swift */,
 				ED0FEC592B03CA6400904AA9 /* buttonsTable .swift */,
 				EDA057D02B04C5AD00081133 /* slidingCategories.swift */,
+				ED682E3B2B0EB74200444EE3 /* SlidingCategories2.swift */,
 				EDE369E92B090E7F00432BB7 /* modalSong.swift */,
 				ED8007A02B03825100E98579 /* Assets.xcassets */,
 				ED8007A22B03825100E98579 /* Preview Content */,
@@ -111,7 +112,6 @@
 				ED682E352B0E491C00444EE3 /* singerList.swift */,
 				ED682E372B0E4A4900444EE3 /* categoriesModel.swift */,
 				ED682E392B0E4A6800444EE3 /* categoriesList.swift */,
-				ED682E3B2B0EB74200444EE3 /* SlidingCategories2.swift */,
 			);
 			path = "Spotify copy";
 			sourceTree = "<group>";

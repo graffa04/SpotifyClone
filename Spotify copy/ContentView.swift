@@ -69,9 +69,8 @@ struct ContentView: View {
                 }
             }
             
-            
         }
-        tabSong(count: .constant(1))
+        tabSong()
         barMenu()
     }
 }

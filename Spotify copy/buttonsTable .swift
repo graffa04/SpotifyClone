@@ -158,6 +158,8 @@ struct buttonsTable_: View {
                 
             }
         }
+        .accentColor(.white)
+
     }
 }
 
