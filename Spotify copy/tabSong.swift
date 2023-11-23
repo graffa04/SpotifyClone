@@ -65,122 +65,129 @@ struct tabSong: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var isDarkMode = true
+    
     let song1 = "song1"
     
     var body: some View {
-        
-        NavigationStack {
-            ZStack {
-                if self.count == 1 {
-                    BackgroundT1()
-                } else if self.count == 2 {
-                    BackgroundT2()
-                } else if self.count == 3 {
-                    BackgroundT3()
-                }
-                VStack {
-                    HStack {
-                        HStack{
-                            Spacer()
-                            Button {
-                                showSong = true
-                            } label: {
-                                if self.count == 1 {
-                                    Image("songModal1")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .cornerRadius(5)
-                                } else if self.count == 2 {
-                                    Image("songModal2")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .cornerRadius(5)
-                                } else if self.count == 3 {
-                                    Image("songModal3")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .cornerRadius(5)
-                                }
-                                
-                            }.accessibilityHidden(true)
-                            
-                            
-                            VStack(alignment: .leading) {
-                                Button{
-                                    showSong = true
-                                }label: {
-                                    Text("Name song")
-                                }
-                                
-                                
-                                //Text("Name song")
-                                Text("Singers name")
-                                    .foregroundColor(Color(.gray))
-                                    .accessibilityHidden(true)
-                            }
-                            .font(.system(size: 10))
-                            .accessibilityLabel("Name Song, Singer Name, double tap for the song view")
-                            
-                            Spacer(minLength: 160)
-                            Spacer()
-                            
-                        }
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 25) {
-                            Button {
-                                showSong = true
-                            } label: {
-                                Image(systemName: "hifispeaker")
-                                    .foregroundColor(.gray)
-                            }
-                            
-                            
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
-                                    .foregroundColor(.white)
-                                    .onTapGesture {
-                                        isPlaying ? StopAudio() : playAudio()
-                                    }
-                            })
-                            
-                        }
-                        .font(.system(size: 25))
-                        .padding(.trailing)
+        ZStack {
+//            Color(.black)
+//                .ignoresSafeArea()
+            NavigationStack {
+                ZStack {
+                    if self.count == 1 {
+                        BackgroundT1()
+                    } else if self.count == 2 {
+                        BackgroundT2()
+                    } else if self.count == 3 {
+                        BackgroundT3()
                     }
-                    Slider(value: Binding(get: {
-                        currentTime
-                    }, set: { newValue in
-                        seekAudio(to: newValue)
-                    }), in: 0...totalTime)
-                    .accentColor(.white)
-                    .padding(.top, 15.0)
-                    .progressViewStyle(LinearProgressViewStyle(tint: .white))
-                    .frame(width: 370, height: 0.5)
-                    .accessibilityHidden(true)
-                    
+                    VStack {
+                        HStack {
+                            HStack{
+                                Spacer()
+                                Button {
+                                    showSong = true
+                                } label: {
+                                    if self.count == 1 {
+                                        Image("songModal1")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .cornerRadius(5)
+                                    } else if self.count == 2 {
+                                        Image("songModal2")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .cornerRadius(5)
+                                    } else if self.count == 3 {
+                                        Image("songModal3")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .cornerRadius(5)
+                                    }
+                                    
+                                }.accessibilityHidden(true)
+                                
+                                
+                                VStack(alignment: .leading) {
+                                    Button{
+                                        showSong = true
+                                    }label: {
+                                        Text("Name song")
+                                    }
+                                    
+                                    
+                                    //Text("Name song")
+                                    Text("Singers name")
+                                        .foregroundColor(Color(.gray))
+                                        .accessibilityHidden(true)
+                                }
+                                .font(.system(size: 10))
+                                .accessibilityLabel("Name Song, Singer Name, double tap for the song view")
+                                
+                                Spacer(minLength: 160)
+                                Spacer()
+                                
+                            }
+                            
+                            Spacer()
+                            
+                            HStack(spacing: 25) {
+                                Button {
+                                    showSong = true
+                                } label: {
+                                    Image(systemName: "hifispeaker")
+                                        .foregroundColor(.gray)
+                                }
+                                
+                                
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                                        .foregroundColor(.white)
+                                        .onTapGesture {
+                                            isPlaying ? StopAudio() : playAudio()
+                                        }
+                                })
+                                
+                            }
+                            .font(.system(size: 25))
+                            .padding(.trailing)
+                        }
+                        Slider(value: Binding(get: {
+                            currentTime
+                        }, set: { newValue in
+                            seekAudio(to: newValue)
+                        }), in: 0...totalTime)
+                        .accentColor(.white)
+                        .padding(.top, 15.0)
+                        .progressViewStyle(LinearProgressViewStyle(tint: .white))
+                        .frame(width: 370, height: 0.5)
+                        .accessibilityHidden(true)
+                        
+                    }
                 }
+                .frame(height: 65)
+                .cornerRadius(8)
+                .foregroundColor(.white)
+                .onAppear(perform: setupAudio)
+                .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+                    updateProgress()
+                }
+                
+                
             }
+//            .preferredColorScheme(isDarkMode ? .dark : .dark)
             .frame(height: 65)
             .cornerRadius(8)
-            .foregroundColor(.white)
-            .onAppear(perform: setupAudio)
-            .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
-                updateProgress()
-            }
-            
-            
-            
-        }
-        .frame(height: 65)
-        .fullScreenCover(isPresented: $showSong, content: {
-            modalSong(player: $player ,isPlaying: $isPlaying, totalTime: $totalTime, currentTime: $currentTime, count: $count)
+            .fullScreenCover(isPresented: $showSong, content: {
+                modalSong(player: $player ,isPlaying: $isPlaying, totalTime: $totalTime, currentTime: $currentTime, count: $count)
         })
+        }
         
     }
+    
     
     func gestureVertical() -> some Gesture {
         return DragGesture()
@@ -239,6 +246,7 @@ struct tabSong: View {
         let seconds = Int(time) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+    
 }
 
 #Preview {

@@ -10,6 +10,8 @@ import SwiftUI
 
 
 struct barMenu: View {
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var isDarkMode = true
     var body: some View {
         TabView {
             buttonsTable_()
@@ -28,9 +30,12 @@ struct barMenu: View {
                     
                 }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .dark)
         .tint(Color(.white))
-            .frame(height: 40)
+        .frame(height: 40)
     }
+    
+        
 }
 
 #Preview {

@@ -10,11 +10,13 @@ import SwiftUI
 
 @main
 struct Spotify_copyApp: App {
+    @State private var isDarkMode = true
     //    @StateObject var currentSong: songsList = songsList(nameSong: "John", nameArtist: "Cena", imageSong: "profile", explicit: true)
         
         var body: some Scene {
             WindowGroup {
                 ContentView()
+                    .preferredColorScheme(isDarkMode ? .dark : .dark)
     //                .environmentObject(currentSong)
         }
     }
