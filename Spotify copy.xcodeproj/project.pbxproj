@@ -27,6 +27,8 @@
 		EDA057D72B051EA200081133 /* tabSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA057D62B051EA200081133 /* tabSong.swift */; };
 		EDA057D92B05348F00081133 /* barMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA057D82B05348F00081133 /* barMenu.swift */; };
 		EDA057DB2B05427200081133 /* playlistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA057DA2B05427200081133 /* playlistPage.swift */; };
+		EDB2D7BF2B14B57F008529FE /* searchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2D7BE2B14B57F008529FE /* searchView.swift */; };
+		EDB2D7C12B14E62A008529FE /* searchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2D7C02B14E62A008529FE /* searchBar.swift */; };
 		EDE369EA2B090E7F00432BB7 /* modalSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE369E92B090E7F00432BB7 /* modalSong.swift */; };
 		EDE369EC2B0BA52B00432BB7 /* songsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE369EB2B0BA52B00432BB7 /* songsList.swift */; };
 		EDE369EE2B0BA5B400432BB7 /* songsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE369ED2B0BA5B400432BB7 /* songsListModel.swift */; };
@@ -54,6 +56,8 @@
 		EDA057D62B051EA200081133 /* tabSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabSong.swift; sourceTree = "<group>"; };
 		EDA057D82B05348F00081133 /* barMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barMenu.swift; sourceTree = "<group>"; };
 		EDA057DA2B05427200081133 /* playlistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playlistPage.swift; sourceTree = "<group>"; };
+		EDB2D7BE2B14B57F008529FE /* searchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchView.swift; sourceTree = "<group>"; };
+		EDB2D7C02B14E62A008529FE /* searchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBar.swift; sourceTree = "<group>"; };
 		EDE369E92B090E7F00432BB7 /* modalSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalSong.swift; sourceTree = "<group>"; };
 		EDE369EB2B0BA52B00432BB7 /* songsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songsList.swift; sourceTree = "<group>"; };
 		EDE369ED2B0BA5B400432BB7 /* songsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songsListModel.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				ED80079C2B03825000E98579 /* Spotify_copyApp.swift */,
+				EDA057D82B05348F00081133 /* barMenu.swift */,
 				ED80079E2B03825000E98579 /* ContentView.swift */,
 				EDA057D62B051EA200081133 /* tabSong.swift */,
 				EDA057D22B04EB4700081133 /* Singers.swift */,
@@ -100,7 +105,6 @@
 				EDE369E92B090E7F00432BB7 /* modalSong.swift */,
 				ED8007A02B03825100E98579 /* Assets.xcassets */,
 				ED8007A22B03825100E98579 /* Preview Content */,
-				EDA057D82B05348F00081133 /* barMenu.swift */,
 				EDA057DA2B05427200081133 /* playlistPage.swift */,
 				ED08DEE12B0617E000EAEE2D /* playlistModel.swift */,
 				EDE369EB2B0BA52B00432BB7 /* songsList.swift */,
@@ -112,6 +116,8 @@
 				ED682E352B0E491C00444EE3 /* singerList.swift */,
 				ED682E372B0E4A4900444EE3 /* categoriesModel.swift */,
 				ED682E392B0E4A6800444EE3 /* categoriesList.swift */,
+				EDB2D7BE2B14B57F008529FE /* searchView.swift */,
+				EDB2D7C02B14E62A008529FE /* searchBar.swift */,
 			);
 			path = "Spotify copy";
 			sourceTree = "<group>";
@@ -197,10 +203,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB2D7BF2B14B57F008529FE /* searchView.swift in Sources */,
 				EDE369EC2B0BA52B00432BB7 /* songsList.swift in Sources */,
 				EDE369EA2B090E7F00432BB7 /* modalSong.swift in Sources */,
 				EDA057D12B04C5AD00081133 /* slidingCategories.swift in Sources */,
 				ED682E362B0E491C00444EE3 /* singerList.swift in Sources */,
+				EDB2D7C12B14E62A008529FE /* searchBar.swift in Sources */,
 				EDA057DB2B05427200081133 /* playlistPage.swift in Sources */,
 				EDE369EE2B0BA5B400432BB7 /* songsListModel.swift in Sources */,
 				ED80079F2B03825000E98579 /* ContentView.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 @main
@@ -15,9 +16,10 @@ struct Spotify_copyApp: App {
         
         var body: some Scene {
             WindowGroup {
-                ContentView()
+                barMenu()
                     .preferredColorScheme(isDarkMode ? .dark : .dark)
     //                .environmentObject(currentSong)
-        }
+            }/*.modelContainer(for: songsList.self)*/
+            
     }
 }

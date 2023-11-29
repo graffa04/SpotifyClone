@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 import AVKit
+import UIKit
 
 struct BackgroundT1: View {
     
@@ -43,6 +44,55 @@ struct BackgroundT3: View {
             .opacity(0.5)
     }
 }
+
+struct UISliderView: UIViewRepresentable {
+    @Binding var value: Double
+    
+    var minValue = 1.0
+    var maxValue = 100.0
+    var thumbColor: UIColor = .clear
+    var minTrackColor: UIColor = .white
+    var maxTrackColor: UIColor = .gray
+    
+    class Coordinator: NSObject {
+        var value: Binding<Double>
+        
+        init(value: Binding<Double>) {
+            self.value = value
+        }
+        
+        @objc func valueChanged(_ sender: UISlider) {
+            self.value.wrappedValue = Double(sender.value)
+        }
+    }
+    
+    func makeCoordinator() -> UISliderView.Coordinator {
+        Coordinator(value: $value)
+    }
+    
+    func makeUIView(context: Context) -> UISlider {
+        let slider = UISlider(frame: .zero)
+        slider.thumbTintColor = thumbColor
+        slider.minimumTrackTintColor = minTrackColor
+        slider.maximumTrackTintColor = maxTrackColor
+        slider.minimumValue = Float(minValue)
+        slider.maximumValue = Float(maxValue)
+        slider.value = Float(value)
+        
+        slider.addTarget(
+            context.coordinator,
+            action: #selector(Coordinator.valueChanged(_:)),
+            for: .valueChanged
+        )
+        
+        return slider
+    }
+    
+    func updateUIView(_ uiView: UISlider, context: Context) {
+        uiView.value = Float(value)
+    }
+}
+
 
 struct tabSong: View {
     
@@ -155,17 +205,19 @@ struct tabSong: View {
                             .font(.system(size: 25))
                             .padding(.trailing)
                         }
-                        Slider(value: Binding(get: {
+//                        Slider(value: Binding(get: {
+//                            currentTime
+//                        }, set: { newValue in
+//                            seekAudio(to: newValue)
+//                        }), in: 0...totalTime)
+                        UISliderView(value: Binding(get: {
                             currentTime
                         }, set: { newValue in
                             seekAudio(to: newValue)
-                        }), in: 0...totalTime)
-                        .accentColor(.white)
-                        .padding(.top, 15.0)
-                        .progressViewStyle(LinearProgressViewStyle(tint: .white))
+                        }))
+                        .padding(.top, 9.5)
                         .frame(width: 370, height: 0.5)
                         .accessibilityHidden(true)
-                        
                     }
                 }
                 .frame(height: 65)
@@ -183,7 +235,9 @@ struct tabSong: View {
             .cornerRadius(8)
             .fullScreenCover(isPresented: $showSong, content: {
                 modalSong(player: $player ,isPlaying: $isPlaying, totalTime: $totalTime, currentTime: $currentTime, count: $count)
-        })
+                    .gesture(
+                    DragGesture())
+            })
         }
         
     }

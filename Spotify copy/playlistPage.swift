@@ -8,6 +8,7 @@
 import SwiftUI
 
 
+
 struct Background: View {
     
     let colors: [Color] = [Color(#colorLiteral(red: 0.1407667696, green: 0.5089942217, blue: 0.5972044468, alpha: 1)), Color(#colorLiteral(red: 0.1079011187, green: 0.3485074937, blue: 0.4073579013, alpha: 1)), Color(#colorLiteral(red: 0.09506385773, green: 0.2428356409, blue: 0.2807130218, alpha: 1)), Color(#colorLiteral(red: 0.08821473271, green: 0.1449819803, blue: 0.1618441939, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1)), Color(#colorLiteral(red: 0.07057534903, green: 0.07059564441, blue: 0.07057406753, alpha: 1))]
@@ -139,15 +140,15 @@ struct Control: View {
                         
                     }
                 }
-//                ZStack {
-//                    Circle()
-//                        .frame(width: 20, height: 20)
-//                        .foregroundColor(.white)
-//                    
-//                    Image(systemName: "shuffle")
-//                        .foregroundColor(.green)
-//                        .font(.system(size: 10))
-//                }
+                //                ZStack {
+                //                    Circle()
+                //                        .frame(width: 20, height: 20)
+                //                        .foregroundColor(.white)
+                //
+                //                    Image(systemName: "shuffle")
+                //                        .foregroundColor(.green)
+                //                        .font(.system(size: 10))
+                //                }
             }
             .padding(.horizontal)
         }
@@ -163,16 +164,37 @@ struct Songs: View {
     @State private var buttonTapped = false
     @State private var isSelected: Bool = false
     
-//    @Binding var player: AVAudioPlayer?
-//    @Binding var isPlaying : Bool
-//    @Binding var totalTime : TimeInterval
-//    @Binding var currentTime: TimeInterval 
+    //    @Binding var player: AVAudioPlayer?
+    //    @Binding var isPlaying : Bool
+    //    @Binding var totalTime : TimeInterval
+    //    @Binding var currentTime: TimeInterval
     
     let song1 = "song1"
-//    @Binding var player: AVAudioPlayer?
-//    @Binding var isPlaying : Bool
+    //    @Binding var player: AVAudioPlayer?
+    //    @Binding var isPlaying : Bool
     
     var body: some View {
+        Button {
+        } label: {
+            HStack {
+                ZStack{
+                    Rectangle()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Color(red: 0.18, green: 0.18, blue: 0.19))
+                    
+                    Image(systemName: "plus")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 30))
+                }
+                
+                Text("Add to this playlist")
+                    .font(.system(size: 14))
+                    .foregroundColor(.white)
+                
+                Spacer()
+            }
+        }.frame(width: 350)
+        
         ForEach(songList.songs) { songList in
             Button {
                 songList.isSelected.toggle()
@@ -207,30 +229,30 @@ struct Songs: View {
         }.frame(width: 350)
     }
     
-//    private func setupAudio() {
-//        guard let url = Bundle.main.url(forResource: song1, withExtension: "mp3") else {
-//            return
-//        }
-//        
-//        do {
-//            player = try AVAudioPlayer(contentsOf: url)
-//            player?.prepareToPlay()
-//            totalTime = player?.duration ?? 0.0
-//            
-//        } catch {
-//            print("Error loading audio: \(error)")
-//        }
-//    }
-//    
-//    private func playAudio() {
-//        player?.play()
-//        isPlaying = true
-//    }
-//    
-//    private func StopAudio() {
-//        player?.pause()
-//        isPlaying = false
-//    }
+    //    private func setupAudio() {
+    //        guard let url = Bundle.main.url(forResource: song1, withExtension: "mp3") else {
+    //            return
+    //        }
+    //
+    //        do {
+    //            player = try AVAudioPlayer(contentsOf: url)
+    //            player?.prepareToPlay()
+    //            totalTime = player?.duration ?? 0.0
+    //
+    //        } catch {
+    //            print("Error loading audio: \(error)")
+    //        }
+    //    }
+    //
+    //    private func playAudio() {
+    //        player?.play()
+    //        isPlaying = true
+    //    }
+    //
+    //    private func StopAudio() {
+    //        player?.pause()
+    //        isPlaying = false
+    //    }
 }
 struct playlistPage: View {
     

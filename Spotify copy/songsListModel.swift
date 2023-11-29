@@ -7,11 +7,11 @@
 
 import Foundation
 
-class songsListModel {
+class songsListModel{
     var songs: [songsList] = [
         songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist1", explicit: false, isSelected: false),
         songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist2", explicit: true, isSelected: false),
-        songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist3", explicit: true, isSelected: false),
+        songsList(nameSong: "cia", nameArtist: "Artist Name", imageSong: "songPlaylist3", explicit: true, isSelected: false),
         songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist4", explicit: false, isSelected: false),
         songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist5", explicit: true, isSelected: false),
         songsList(nameSong: "Song Name", nameArtist: "Artist Name", imageSong: "songPlaylist6", explicit: true, isSelected: false),

@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@Observable
 class songsList: Identifiable {
     var id: UUID = UUID()
     var nameSong: String

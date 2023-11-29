@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //    @EnvironmentObject var currentSong: songsList
-
+    @State private var selectedTab: Int = 0
     
     var body: some View {
         ZStack {
@@ -65,17 +65,35 @@ struct ContentView: View {
                                 .frame(width: 400, height: 50)
                             
                             Singers()
-                                
+                            
                         }
                         Spacer()
                     }
                 }
             }
+            
         }
-        tabSong()
-        barMenu()
+//
+//        TabView(selection: $selectedTab) {
+//            ContentView()
+//                .tabItem {
+//                    Label("House", systemImage: "house")
+//                }.tag(0)
+//            
+//            searchView()
+//                .tabItem {
+//                    Label("Search", systemImage: "magnifyingglass")
+//                }.tag(1)
+//            
+//            buttonsTable_()
+//                .tabItem {
+//                    Label("Your library", systemImage: "books.vertical")
+//                    
+//                }.tag(2)
+//        }
     }
 }
+
 
 #Preview {
     ContentView()
